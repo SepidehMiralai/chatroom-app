@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 class RoomList extends React.Component {
   constructor(props) {
@@ -15,17 +16,18 @@ class RoomList extends React.Component {
       .then(data => this.setState({rooms: data.data}));
   }
 
-  render(){
+  render(){ 
     return (
-      <div>
-        <ol>
-          {this.state.rooms.map(room => (
-            <li key={room.id}>
-              {room.title}
-            </li>
-          ))}
-        </ol>
-      </div>
+        <div>
+          <ol>
+            {this.state.rooms.map(room => (
+              <li key={room.id}>
+                {room.title}
+                {room.title}
+              </li>
+            ))}
+          </ol>
+        </div>
     );
   }
 }
