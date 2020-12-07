@@ -9,23 +9,17 @@ class Api::V1::RoomsController < Api::V1Controller
   def messages
     @room = Room.find(params[:id])
 
-    # Receiving all the chat messages of the user for this given room
-    # params[:messages]
-    # [
-    #   {created_at: 512748132781, content: "qwdqwdqui wdhqwdu qwudi qhwdiu quiw d"},
-    #   {created_at: 512748132781, content: "qwdqwdqui wdhqwdu qwudi qhwdiu quiw d"},
-    #   {created_at: 512748132781, content: "qwdqwdqui wdhqwdu qwudi qhwdiu quiw d"},
-    #   {created_at: 512748132781, content: "qwdqwdqui wdhqwdu qwudi qhwdiu quiw d"},
-    #   {created_at: 512748132781, content: "qwdqwdqui wdhqwdu qwudi qhwdiu quiw d"},
-    #   {created_at: 512748132781, content: "qwdqwdqui wdhqwdu qwudi qhwdiu quiw d"}
-    # ]
-
     @room.persist_messages_for_user!(messages_params[:messages], current_user)
 
-    # Response
-    # @json_object = RoomsSerializer.new(@room).as_json
     render json: {status: :success}, status: 200
   end
+
+  def room_messages
+    @room = Room.find(params[:id])
+    messages = @room.messages
+    render json: {status: 'SUCCESS', message:'Loaded this rooms messages', data:messages}, status: :ok
+  end
+
 
   protected
 

@@ -6,20 +6,27 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [] do
+      # resources :users, only: [] do
+      resources :users do
         member do
           post :messages
-        end
+          get 'u_messages'
+        end  
+        
       end
 
-      resources :rooms, only: [] do
+      # resources :rooms, only: [] do
+      resources :rooms do
         member do
           post :messages
+          get 'room_messages'
         end
+        
       end
 
-      resources :rooms
-      resources :users
+      resource :rooms
+      resource :users
+      
     end
   end
 
