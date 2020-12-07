@@ -1,7 +1,7 @@
 class Api::V1::RoomsController < Api::V1Controller
   acts_as_token_authentication_handler_for User, only: :messages
   
-  def index
+  def show
     rooms = Room.all
     render json: {status: 'SUCCESS', message:'Loaded rooms', data:rooms}, status: :ok
   end
