@@ -1,6 +1,9 @@
 class Room < ApplicationRecord
   has_many :messages, dependent: :destroy
   validates :title, presence: true
+  scope :latest, -> { order(created_at: :desc)}
+ 
+
 
   def persist_messages_for_user!(user_messages, user)
     last_saved_message = messages.for_user(user).latest.first

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
 class RoomList extends React.Component {
   constructor(props) {
@@ -19,6 +18,7 @@ class RoomList extends React.Component {
   render(){ 
     return (
         <div>
+          <h2>Channel List</h2>
           <ol>
             {this.state.rooms.map(room => (
               <li key={room.id}>

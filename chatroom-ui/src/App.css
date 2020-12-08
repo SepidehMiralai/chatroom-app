@@ -1,6 +1,22 @@
-.App {
-  text-align: center;
+
+:root {
+  --main-color: #5ea3d0;
+  --secondary-color: white;
+  --main-text-color: #b0c7d6;
+  --send-message-from: #F5F5F5;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui;
+  font-weight: 250;
+  color: #3e5869;
+}
+#root {
+  height: 100%;
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -36,3 +52,42 @@
     transform: rotate(360deg);
   }
 }
+.split {
+  height: 70%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: lightblue;
+}
+
+.right {
+  right: 0;
+  background-color: lightgoldenrodyellow;
+}
+
+.below {
+  height: 30%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  overflow-x: hidden;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.messagefield { width: 200px;
+                height: 50px; 
+                border: 1px solid blue;
+                padding: 20px; 
+                margin: 20px
+
+}
+

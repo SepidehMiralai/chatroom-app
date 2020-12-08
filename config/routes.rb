@@ -21,8 +21,9 @@ Rails.application.routes.draw do
         end
       end
 
-      resource :rooms
-      resource :users
+      resources :rooms
+      resources :users
+      resources :messages
       
     end
   end
