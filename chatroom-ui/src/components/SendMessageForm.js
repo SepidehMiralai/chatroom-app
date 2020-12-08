@@ -1,7 +1,5 @@
 
 import React, { useContext } from 'react';
-import  {MContext} from './MyProvider';
-
 
 class SendMessageForm extends React.Component {
 
@@ -18,6 +16,7 @@ class SendMessageForm extends React.Component {
     this.setState({
       message: e.target.value
     })
+    this.props.callbackFromApp(this.state.message);
   }
 
   handleSubmit(e){
@@ -38,11 +37,7 @@ class SendMessageForm extends React.Component {
             placeholder = "Type your message and hit Enter"
             type = "text" />
         </form>
-        <MContext.Consumer>
-        {(context) => (
-       <button onClick={()=>{context.setMessage("New Arrival")}}>Send</button>
-       )}
-        </MContext.Consumer>
+        
       </div>
     )
     }
