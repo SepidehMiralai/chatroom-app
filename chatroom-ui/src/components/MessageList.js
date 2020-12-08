@@ -9,6 +9,7 @@ class MessageList extends React.Component {
       messages: [],
     };
     this.addNewMessage=this.addNewMessage.bind(this)
+    this.postNewMessage=this.postNewMessage.bind(this)
   }
 
   componentDidMount() {
@@ -18,8 +19,10 @@ class MessageList extends React.Component {
       // console.log(this.newMessage);
       // this.setState({message: this.props.newMessage});
        
-      if (this.newMessage!=='')
+      if (this.newMessage!==''){
         this.addNewMessage();
+        this.postNewMessage();
+      }
       
   }
 
@@ -32,6 +35,10 @@ class MessageList extends React.Component {
     
     msgs.push(this.newMessage);
     this.setState({messages: msgs, errors: []});
+  }
+
+  postNewMessage(){
+    
   }
 
   render(){ 
