@@ -62,4 +62,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 @override
   config.action_controller.allow_forgery_protection = false
+  config.hosts = nil
 end

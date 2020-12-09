@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::V1Controller
-  acts_as_token_authentication_handler_for User
+  acts_as_token_authentication_handler_for User, only: :messages
 
   def index
     users = User.all

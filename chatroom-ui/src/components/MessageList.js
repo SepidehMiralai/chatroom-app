@@ -38,7 +38,15 @@ class MessageList extends React.Component {
   }
 
   postNewMessage(){
-    
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-User-Email': 'john@doe.com' ,'X-User-Token': 'AThhjbpU8T3fycLEx6aS'},
+      body: JSON ({ 'content': this.newMessage, 'created_at': new Date().getTime() })
+    };
+    fetch('http://localhost:3000/api/v1/rooms/1/messages', requestOptions)
+        .then(response => response.json())
+        .then(data => console.log(data));
+
   }
 
   render(){ 
